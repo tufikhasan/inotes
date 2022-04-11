@@ -39,8 +39,13 @@ router.post(
 
 //ROUTE 02: Fetch all notes using: GET "/api/notes/fatchallnotes".login required
 router.get("/fatchallnotes", fetchuser, async (req, res) => {
-  const notes = await Notes.find({ user: req.user.id });
-  res.json(notes);
+  try {
+    const notes = await Notes.find({ user: req.user.id });
+    res.json(notes);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Internal server error");
+  }
 });
 
 module.exports = router;
