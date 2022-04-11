@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 const NotesSchema = new Schema({
   //Get users objectedId
-  userId: {
+  user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "users", //refference schema user model name
   },

@@ -37,4 +37,10 @@ router.post(
   }
 );
 
+//ROUTE 02: Fetch all notes using: GET "/api/notes/fatchallnotes".login required
+router.get("/fatchallnotes", fetchuser, async (req, res) => {
+  const notes = await Notes.find({ user: req.user.id });
+  res.json(notes);
+});
+
 module.exports = router;

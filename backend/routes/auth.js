@@ -108,7 +108,7 @@ router.post(
 );
 
 //ROUTE 03: Get logged User details using: POST "/api/auth/getuser".login required
-router.get("/getuser", fetchuser, async (req, res) => {
+router.post("/getuser", fetchuser, async (req, res) => {
   //if there are error return bad request and error message
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
