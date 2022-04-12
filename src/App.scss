@@ -20,3 +20,17 @@
     padding: 4rem 1rem 2rem;
   }
 }
+.primary_button {
+  padding: 0.4rem 1.5rem;
+  border-radius: 5px;
+  margin-left: 5px;
+  border: none;
+  text-transform: capitalize;
+  transition: all 0.3s ease-in-out;
+  color: var(--black-color);
+  cursor: pointer;
+  &:hover {
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+  }
+}
