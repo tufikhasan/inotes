@@ -5,12 +5,21 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-        </li>
-      </ul>
+      <div className="app__navbar">
+        <div className="app__navbar-logo"></div>
+        <ul className="app__navbar-links">
+          {["home", "about"].map((item) => (
+            <li className="app__flex" key={`link-${item}`}>
+              <div />
+              <Link to={`/${item === "home" ? "" : item}`}>{item}</Link>
+            </li>
+          ))}
+        </ul>
+        <div className="app__navbar-sign-btns">
+          <button>Sign in</button>
+          <button>Sign in</button>
+        </div>
+      </div>
     </>
   );
 };
