@@ -1,5 +1,13 @@
 .app__notes {
-  background-color: red;
   flex: 0.55;
   width: 100%;
+  min-height: 60vh;
+  h2 {
+    margin-bottom: 1rem;
+  }
+  > div {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 }
