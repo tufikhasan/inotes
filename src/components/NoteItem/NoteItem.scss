@@ -1,17 +1,39 @@
 .app__note {
-  width: 200px;
+  width: 250px;
+  min-height: 160px;
   margin: 1rem;
   background: var(--white-color);
   border-radius: 15px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-  padding: 1rem 2rem;
+  padding: 1rem;
   transition: all 0.3s ease-in-out;
-  cursor: grab;
+  position: relative;
   &:hover {
-    box-shadow: 0px 0px 20px rgba(217, 128, 250, 1);
+    box-shadow: var(--primary-shadow);
   }
   h3 {
     text-transform: capitalize;
     margin-bottom: 1rem;
+  }
+  .tag {
+    position: absolute;
+    bottom: 1rem;
+    right: 10px;
+    color: var(--secondary-color);
+  }
+  div {
+    position: absolute;
+    top: 1rem;
+    right: 10px;
+    svg {
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      &:nth-child(1) {
+        margin-right: 5px;
+      }
+      &:hover {
+        color: var(--secondary-color);
+      }
+    }
   }
 }

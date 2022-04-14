@@ -11,12 +11,24 @@ const Notes = () => {
       <div>
         <NoteItem
           title="title"
-          description="description jg kgj  kjg nfkg gg f g fng g gfdkg n gfnkg g ng ng"
+          description="descri ptio ndescr iption jg kgj  kjg nfkg gg f g fng g gfdkg n gfnkg g ng ng descri ptio ndescr iption jg kgj  kjg nfkg gg f g fng g gfdkg n gfnkg g ng ng descri ptio ndescr iption jg kgj  kjg nfkg gg f g fng g gfdkg n gfnkg g ng ng"
           tag="tag"
         />
-        <NoteItem title="title" description="description" tag="tag" />
-        <NoteItem title="title" description="description" tag="tag" />
-        <NoteItem title="title" description="description" tag="tag" />
+        <NoteItem
+          title="title"
+          description="ptio ndescr iption jg kgj  kjg nfkg gg f descri ption"
+          tag="tag"
+        />
+        <NoteItem
+          title="title"
+          description="lorem ptio ndescr iption jg kgj  kjg nfkg gg f  des cri ption"
+          tag="tag"
+        />
+        <NoteItem
+          title="title"
+          description="scrip ptio ndescr iption jg kgj  kjg nfkg gg f  tion"
+          tag="tag"
+        />
       </div>
     </div>
   );
