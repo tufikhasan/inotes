@@ -60,7 +60,7 @@ const Navbar = () => {
                   onClick={() => {
                     setToggle(false);
                   }}
-                  className="primary_button"
+                  className="primary_button active"
                 >
                   Sign in
                 </button>
@@ -68,7 +68,7 @@ const Navbar = () => {
                   onClick={() => {
                     setToggle(false);
                   }}
-                  className="primary_button"
+                  className="primary_button active"
                 >
                   Sign up
                 </button>

@@ -1,10 +1,12 @@
 import React from "react";
+import { Addnote, Notes } from "../../components";
 import "./Home.scss";
 
 const Home = () => {
   return (
-    <div className="">
-      <div>home</div>
+    <div className="app__home">
+      <Addnote />
+      <Notes />
     </div>
   );
 };

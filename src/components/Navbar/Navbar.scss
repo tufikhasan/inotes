@@ -83,6 +83,7 @@
     width: 70%;
     color: var(--white-color);
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
   }
   div {
     position: fixed;
@@ -107,7 +108,7 @@
         opacity: 0;
       }
       100% {
-        width: 300px;
+        width: 280px;
         opacity: 1;
       }
     }
@@ -119,12 +120,10 @@
       cursor: pointer;
     }
     ul {
-      list-style: none;
       margin: 0;
       padding: 0;
       height: 100%;
       width: 100%;
-
       display: flex;
       justify-content: flex-start;
       align-items: flex-start;
@@ -134,12 +133,10 @@
         margin: 1rem;
         a {
           color: var(--gray-color);
-          text-decoration: none;
-          font-size: 1rem;
+          font-size: 0.8rem;
           text-transform: uppercase;
           font-weight: 500;
           transition: all 0.3s ease-in-out;
-
           &:hover {
             color: var(--secondary-color);
           }

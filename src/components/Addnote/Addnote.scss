@@ -1,0 +1,34 @@
+.app__addnote {
+  padding-right: 1rem;
+  flex: 0.45;
+  width: 100%;
+  h2 {
+    margin-bottom: 1rem;
+  }
+  form {
+    div {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+      label {
+        margin-bottom: 5px;
+      }
+      input,
+      textarea {
+        outline: none;
+        border: none;
+        background-color: rgba($color: #130f40, $alpha: 0.5);
+        padding: 10px 5px;
+        border-radius: 5px;
+        color: var(--white-color);
+        font-size: 0.9rem;
+        line-height: 1.5;
+        width: 100%;
+      }
+    }
+  }
+  @media screen and (max-width: 900px) {
+    padding-right: 0;
+    padding-bottom: 40px;
+  }
+}
