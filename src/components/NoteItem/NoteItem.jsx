@@ -4,17 +4,19 @@ import { AiOutlineEdit, AiOutlineDelete } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 const NoteItem = (props) => {
-  const { title, description, tag } = props;
+  const { note } = props;
   return (
     <div className="app__note">
-      <h3 className="bold-text">{title}</h3>
+      <h3 className="bold-text">{note.title}</h3>
       <p className="p-text">
         {`${
-          description.length > 150 ? description.slice(0, 150) : description
+          note.description.length > 150
+            ? note.description.slice(0, 150)
+            : note.description
         }`}
-        {description.length > 150 ? <Link to="/">... read more</Link> : ""}
+        {note.description.length > 150 ? <Link to="/">... read more</Link> : ""}
       </p>
-      <p className="p-text tag">{tag}</p>
+      <p className="p-text tag">{note.tag}</p>
       <div>
         <AiOutlineEdit />
         <AiOutlineDelete />
