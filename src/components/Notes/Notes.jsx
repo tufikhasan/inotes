@@ -12,8 +12,8 @@ const Notes = () => {
         all <span>of Your</span> notes
       </h2>
       <div>
-        {notes.map((note) => {
-          return <NoteItem key={note._id} note={note} />;
+        {notes.map((note, index) => {
+          return <NoteItem key={`note-${index}`} note={note} />;
         })}
       </div>
     </div>
