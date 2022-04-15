@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import noteContext from "../../context/notes/noteContext";
 import "./NoteItem.scss";
 import { AiOutlineEdit, AiOutlineDelete } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 const NoteItem = (props) => {
+  const context = useContext(noteContext)
+  const {deleteNote} = context
   const { note } = props;
   return (
     <div className="app__note">
@@ -19,7 +22,7 @@ const NoteItem = (props) => {
       <p className="p-text tag">{note.tag}</p>
       <div>
         <AiOutlineEdit />
-        <AiOutlineDelete />
+        <AiOutlineDelete onClick={()=>{deleteNote(note._id)}} />
       </div>
     </div>
   );
