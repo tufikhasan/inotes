@@ -8,7 +8,7 @@ const Addnote = () => {
   const {addNote} = context
 
 
-  const [note, setNotes] = useState({title: "", description: "", tag: "Default"})
+  const [note, setNotes] = useState({title: "", description: "", tag: "General"})
   //Handle add note function
   const handleAddNote = (e)=>{
     //ignore page load
@@ -18,7 +18,7 @@ const Addnote = () => {
   }
   //input on change
   const handleOnChange = (e)=>{
-    setNotes({...note, [e.target.name]:[e.target.value]})
+    setNotes({...note, [e.target.name]: e.target.value})
   }
   return (
     <div className="app__addnote">

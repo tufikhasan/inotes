@@ -21,14 +21,21 @@ const NoteState = (props) => {
 
   }
   //Addnote
-  const addNote = (title, description, tag) => {
+  const addNote = async (title, description, tag) => {
     //Api call
-
+    await fetch(`${host}/api/notes/addnote`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjI1M2YzNmIwNzJkZTkzZWQ2ZDgxOGY5In0sImlhdCI6MTY0OTY2ODk3NX0.DYxSFmuP7Y3SES68ldhwQJZl002DqhjlvOSD48LupGo"
+      },
+      body: JSON.stringify({title, description, tag})
+    });
     //logic for add a new note
     const note = {
-      "title": title,
-      "description": description,
-      "tag": tag
+      title: title,
+      description: description,
+      tag: tag
   }
   setNotes(notes.concat(note))
   };
