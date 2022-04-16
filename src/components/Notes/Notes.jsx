@@ -1,11 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import noteContext from "../../context/notes/noteContext";
 import NoteItem from "../NoteItem/NoteItem";
 import "./Notes.scss";
 
 const Notes = () => {
   const context = useContext(noteContext);
-  const { notes } = context;
+  const { notes, getNotes } = context;
+  useEffect(() => {
+    getNotes();
+    // eslint-disable-next-line
+  }, [ ])
   return (
     <div className="app__notes">
       <h2 className="head-text">
