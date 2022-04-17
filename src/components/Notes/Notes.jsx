@@ -3,14 +3,20 @@ import noteContext from '../../context/notes/noteContext';
 import NoteItem from '../NoteItem/NoteItem';
 import { HiOutlineX } from 'react-icons/hi';
 import './Notes.scss';
+import { useNavigate } from 'react-router-dom';
 
 const Notes = (props) => {
   const { showAlert } = props;
   const context = useContext(noteContext);
   const { notes, getNotes, editNote } = context;
   const [openModal, setOpenModal] = useState(false);
+  let navigate = useNavigate();
   useEffect(() => {
-    getNotes();
+    if (localStorage.getItem('token')) {
+      getNotes();
+    } else {
+      navigate({ pathname: '/login' });
+    }
     // eslint-disable-next-line
   }, []);
   const ref = useRef(null);
