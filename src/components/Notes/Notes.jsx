@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import noteContext from '../../context/notes/noteContext';
 import Modal from '../Modal/Modal';
 import NoteItem from '../NoteItem/NoteItem';
@@ -12,6 +12,11 @@ const Notes = () => {
     getNotes();
     // eslint-disable-next-line
   }, []);
+  const ref = useRef(null)
+  const updateNote = (note)=>{
+    ref.current.click()
+  }
+
   return (
     <>
     <div className="app__notes">
@@ -20,7 +25,7 @@ const Notes = () => {
       </h2>
       <div>
         {notes.map((note, index) => {
-          return <NoteItem key={`note-${index}`} note={note} />;
+          return <NoteItem key={`note-${index}`} note={note} updateNote={updateNote} />;
         })}
       </div>
       <button
@@ -28,7 +33,7 @@ const Notes = () => {
           setOpenModal(true);
         }}
         className="primary_button"
-      >
+        ref={ref} style={{display:'none'}}>
         open
       </button>
     </div>

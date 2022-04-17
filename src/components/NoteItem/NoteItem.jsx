@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const NoteItem = (props) => {
   const context = useContext(noteContext)
   const {deleteNote} = context
-  const { note } = props;
+  const { note , updateNote} = props;
   return (
     <div className="app__note">
       <h3 className="bold-text">{note.title}</h3>
@@ -21,7 +21,7 @@ const NoteItem = (props) => {
       </p>
       <p className="p-text tag">{note.tag}</p>
       <div>
-        <AiOutlineEdit />
+        <AiOutlineEdit onClick={()=>{updateNote(note)}}/>
         <AiOutlineDelete onClick={()=>{deleteNote(note._id)}} />
       </div>
     </div>
