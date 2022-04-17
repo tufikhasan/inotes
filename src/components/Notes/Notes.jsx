@@ -50,10 +50,10 @@ const Notes = (props) => {
     <>
       <div className="app__notes">
         <h2 className="head-text">
-          all <span>of Your</span> notes
+          all <span>of my</span> notes
         </h2>
         <div>
-          {notes.length === 0 && 'No Notes Found'}
+          {notes.length === 0 && 'You have No Notes'}
           {notes.map((note, index) => {
             return (
               <NoteItem
