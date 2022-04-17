@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Login.scss';
 
 const Login = () => {
   const [credentials, setCredentials] = useState({ email: '', password: '' });
+  let navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await fetch('http://localhost:5000/api/auth/login', {
@@ -16,7 +18,13 @@ const Login = () => {
       }),
     });
     const json = await response.json();
-    console.log(json);
+    if (json.success) {
+      //Save token and redirect home
+      localStorage.setItem('token', json.authtoken);
+      navigate({ pathname: '/' });
+    } else {
+      alert('Invalid credentials');
+    }
   };
 
   const onChange = (e) => {
