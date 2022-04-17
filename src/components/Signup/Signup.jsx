@@ -79,7 +79,7 @@ const Signup = (props) => {
             disabled={credentials.password.length < 5}
             type="submit"
             className="primary_button"
-            value="Login"
+            value="Sign up"
           />
         </form>
       </div>
