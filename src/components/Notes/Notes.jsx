@@ -13,10 +13,23 @@ const Notes = () => {
     // eslint-disable-next-line
   }, []);
   const ref = useRef(null);
-  const updateNote = (note) => {
+  const [note, setNote] = useState({ etitle: '', edescription: '', etag: '' });
+  const updateNote = (currentNote) => {
     ref.current.click();
+    setNote({
+      etitle: currentNote.title,
+      edescription: currentNote.description,
+      etag: currentNote.tag,
+    });
+  };
+  const handleClick = (e) => {
+    e.preventDefault();
+    console.log('Updated note successfull', note);
   };
 
+  const onChange = (e) => {
+    setNote({ ...note, [e.target.name]: e.target.value });
+  };
   return (
     <>
       <div className="app__notes">
@@ -34,6 +47,7 @@ const Notes = () => {
             );
           })}
         </div>
+        {/*Modals */}
         <button
           onClick={() => {
             setOpenModal(true);
@@ -61,32 +75,48 @@ const Notes = () => {
             <div className="modal-body">
               <form>
                 <div>
-                  <label className="p-text" htmlFor="title">
+                  <label className="p-text" htmlFor="etitle">
                     Update note title
                   </label>
-                  <input type="text" name="title" minLength={5} id="title" />
+                  <input
+                    type="text"
+                    name="etitle"
+                    minLength={5}
+                    id="etitle"
+                    onChange={onChange}
+                    value={note.etitle}
+                  />
                 </div>
                 <div>
-                  <label className="p-text" htmlFor="description">
+                  <label className="p-text" htmlFor="edescription">
                     Update note description
                   </label>
                   <textarea
-                    name="description"
+                    name="edescription"
                     minLength={5}
-                    id="description"
+                    id="edescription"
                     rows="5"
+                    onChange={onChange}
+                    value={note.edescription}
                   ></textarea>
                 </div>
                 <div>
-                  <label className="p-text" htmlFor="tag">
+                  <label className="p-text" htmlFor="etag">
                     Update note tag
                   </label>
-                  <input type="text" name="tag" id="tag" />
+                  <input
+                    type="text"
+                    name="etag"
+                    id="etag"
+                    onChange={onChange}
+                    value={note.etag}
+                  />
                 </div>
                 <input
                   className="primary_button"
                   type="submit"
                   value="Update note"
+                  onClick={handleClick}
                 />
               </form>
             </div>
