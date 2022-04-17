@@ -1,8 +1,8 @@
-import "./App.scss";
-import { Routes, Route } from "react-router-dom";
-import { About, Home } from "./container";
-import { Navbar } from "./components";
-import NoteState from "./context/notes/NoteState";
+import './App.scss';
+import { Routes, Route } from 'react-router-dom';
+import { About, Home } from './container';
+import { Login, Navbar, Signup } from './components';
+import NoteState from './context/notes/NoteState';
 
 function App() {
   return (
@@ -12,6 +12,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
         </Routes>
       </NoteState>
     </>

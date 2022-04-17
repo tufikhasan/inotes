@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import "./Navbar.scss";
-import { Link } from "react-router-dom";
-import { BiAlignLeft } from "react-icons/bi";
-import { HiX } from "react-icons/hi";
+import React, { useState } from 'react';
+import './Navbar.scss';
+import { Link } from 'react-router-dom';
+import { BiAlignLeft } from 'react-icons/bi';
+import { HiX } from 'react-icons/hi';
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
@@ -11,21 +11,25 @@ const Navbar = () => {
       <div className="app__navbar">
         <div className="app__navbar-logo">
           <h2>
-            <Link to={"/"}>iNotes</Link>
+            <Link to={'/'}>iNotes</Link>
           </h2>
         </div>
         <div className="app__navbar-navigation">
           <ul className="app__navbar-links">
-            {["home", "about"].map((item) => (
+            {['home', 'about'].map((item) => (
               <li className="app__flex" key={`link-${item}`}>
                 <div />
-                <Link to={`/${item === "home" ? "" : item}`}>{item}</Link>
+                <Link to={`/${item === 'home' ? '' : item}`}>{item}</Link>
               </li>
             ))}
           </ul>
           <div>
-            <button className="primary_button">Sign in</button>
-            <button className="primary_button">Sign up</button>
+            <Link to="/login" className="primary_button">
+              Sign in
+            </Link>
+            <Link to="/signup" className="primary_button">
+              Sign up
+            </Link>
           </div>
         </div>
         <div className="app__navbar-menu">
@@ -42,10 +46,10 @@ const Navbar = () => {
                 }}
               />
               <ul>
-                {["home", "about"].map((item) => (
+                {['home', 'about', 'login', 'signup'].map((item) => (
                   <li key={`link-${item}`}>
                     <Link
-                      to={`/${item === "home" ? "" : item}`}
+                      to={`/${item === 'home' ? '' : item}`}
                       onClick={() => {
                         setToggle(false);
                       }}
@@ -56,22 +60,24 @@ const Navbar = () => {
                 ))}
               </ul>
               <span>
-                <button
+                <Link
+                  to="/login"
                   onClick={() => {
                     setToggle(false);
                   }}
                   className="primary_button active"
                 >
                   Sign in
-                </button>
-                <button
+                </Link>
+                <Link
+                  to="/signup"
                   onClick={() => {
                     setToggle(false);
                   }}
                   className="primary_button active"
                 >
                   Sign up
-                </button>
+                </Link>
               </span>
             </div>
           )}
