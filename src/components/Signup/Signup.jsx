@@ -22,7 +22,7 @@ const Signup = (props) => {
     const json = await response.json();
     if (json.success) {
       //Save token and redirect home
-      localStorage.setItem('token', json.authtoken);
+      localStorage.setItem('token', json.token);
       navigate({ pathname: '/' });
       showAlert('Account created successfully', 'success');
     } else {
