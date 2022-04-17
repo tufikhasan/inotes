@@ -13,6 +13,7 @@ const Notes = () => {
     // eslint-disable-next-line
   }, []);
   const ref = useRef(null);
+  const refClose = useRef(null);
   const [note, setNote] = useState({ etitle: '', edescription: '', etag: '' });
   const updateNote = (currentNote) => {
     ref.current.click();
@@ -24,6 +25,7 @@ const Notes = () => {
   };
   const handleClick = (e) => {
     e.preventDefault();
+    refClose.current.click();
     console.log('Updated note successfull', note);
   };
 
@@ -122,6 +124,7 @@ const Notes = () => {
             </div>
             <div className="modal-footer">
               <button
+                ref={refClose}
                 className="primary_button active"
                 onClick={() => {
                   setOpenModal(false);
