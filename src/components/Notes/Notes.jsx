@@ -1,16 +1,19 @@
-import React, { useContext, useEffect } from "react";
-import noteContext from "../../context/notes/noteContext";
-import NoteItem from "../NoteItem/NoteItem";
-import "./Notes.scss";
+import React, { useContext, useEffect, useState } from 'react';
+import noteContext from '../../context/notes/noteContext';
+import Modal from '../Modal/Modal';
+import NoteItem from '../NoteItem/NoteItem';
+import './Notes.scss';
 
 const Notes = () => {
   const context = useContext(noteContext);
   const { notes, getNotes } = context;
+  const [openModal, setOpenModal] = useState(false);
   useEffect(() => {
     getNotes();
     // eslint-disable-next-line
-  }, [ ])
+  }, []);
   return (
+    <>
     <div className="app__notes">
       <h2 className="head-text">
         all <span>of Your</span> notes
@@ -20,7 +23,17 @@ const Notes = () => {
           return <NoteItem key={`note-${index}`} note={note} />;
         })}
       </div>
+      <button
+        onClick={() => {
+          setOpenModal(true);
+        }}
+        className="primary_button"
+      >
+        open
+      </button>
     </div>
+    {openModal && <Modal closeModal={setOpenModal} />}
+    </>
   );
 };
 
