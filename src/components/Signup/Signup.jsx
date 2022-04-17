@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Signup.scss';
 
 const Signup = () => {
   const [credentials, setCredentials] = useState({
@@ -33,8 +32,8 @@ const Signup = () => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
   return (
-    <div className="app__signup">
-      <div className="app__signup-form">
+    <div className="app__contact">
+      <div className="app__contact-form">
         <h3 className="head-text">
           Create <span>New</span> account
         </h3>
