@@ -45,6 +45,7 @@ const Notes = () => {
           all <span>of Your</span> notes
         </h2>
         <div>
+          {notes.length === 0 && 'No Notes Found'}
           {notes.map((note, index) => {
             return (
               <NoteItem
@@ -87,6 +88,7 @@ const Notes = () => {
                     Update note title
                   </label>
                   <input
+                    required
                     type="text"
                     name="etitle"
                     minLength={5}
@@ -100,8 +102,9 @@ const Notes = () => {
                     Update note description
                   </label>
                   <textarea
-                    name="edescription"
                     minLength={5}
+                    required
+                    name="edescription"
                     id="edescription"
                     rows="5"
                     onChange={onChange}
@@ -121,6 +124,9 @@ const Notes = () => {
                   />
                 </div>
                 <input
+                  disabled={
+                    note.etitle.length < 5 || note.edescription.length < 5
+                  }
                   className="primary_button"
                   type="submit"
                   value="Update note"
