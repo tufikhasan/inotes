@@ -6,7 +6,7 @@ import './Notes.scss';
 
 const Notes = () => {
   const context = useContext(noteContext);
-  const { notes, getNotes } = context;
+  const { notes, getNotes, editNote } = context;
   const [openModal, setOpenModal] = useState(false);
   useEffect(() => {
     getNotes();
@@ -14,10 +14,16 @@ const Notes = () => {
   }, []);
   const ref = useRef(null);
   const refClose = useRef(null);
-  const [note, setNote] = useState({ etitle: '', edescription: '', etag: '' });
+  const [note, setNote] = useState({
+    id: '',
+    etitle: '',
+    edescription: '',
+    etag: '',
+  });
   const updateNote = (currentNote) => {
     ref.current.click();
     setNote({
+      id: currentNote._id,
       etitle: currentNote.title,
       edescription: currentNote.description,
       etag: currentNote.tag,
@@ -26,7 +32,7 @@ const Notes = () => {
   const handleClick = (e) => {
     e.preventDefault();
     refClose.current.click();
-    console.log('Updated note successfull', note);
+    editNote(note.id, note.etitle, note.edescription, note.etag);
   };
 
   const onChange = (e) => {
