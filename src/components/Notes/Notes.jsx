@@ -4,7 +4,8 @@ import NoteItem from '../NoteItem/NoteItem';
 import { HiOutlineX } from 'react-icons/hi';
 import './Notes.scss';
 
-const Notes = () => {
+const Notes = (props) => {
+  const { showAlert } = props;
   const context = useContext(noteContext);
   const { notes, getNotes, editNote } = context;
   const [openModal, setOpenModal] = useState(false);
@@ -33,6 +34,7 @@ const Notes = () => {
     e.preventDefault();
     refClose.current.click();
     editNote(note.id, note.etitle, note.edescription, note.etag);
+    showAlert('Note updated successfully', 'success');
   };
 
   const onChange = (e) => {
@@ -52,6 +54,7 @@ const Notes = () => {
                 key={`note-${index}`}
                 note={note}
                 updateNote={updateNote}
+                showAlert={showAlert}
               />
             );
           })}

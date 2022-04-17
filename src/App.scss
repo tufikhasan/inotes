@@ -177,3 +177,20 @@ form {
     margin-bottom: 1rem;
   }
 }
+
+.alert {
+  position: fixed;
+  top: 4rem;
+  right: 0;
+  color: var(--white-color);
+  border-radius: 5px;
+  z-index: 999;
+  .success {
+    background-color: #2ecc71;
+    padding: 1rem 2rem;
+  }
+  .danger {
+    background-color: red;
+    padding: 1rem 2rem;
+  }
+}

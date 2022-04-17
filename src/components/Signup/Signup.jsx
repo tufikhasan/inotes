@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const Signup = () => {
+const Signup = (props) => {
+  const { showAlert } = props;
   const [credentials, setCredentials] = useState({
     name: '',
     email: '',
@@ -23,8 +24,9 @@ const Signup = () => {
       //Save token and redirect home
       localStorage.setItem('token', json.authtoken);
       navigate({ pathname: '/' });
+      showAlert('Account created successfully', 'success');
     } else {
-      alert('Invalid credentials');
+      showAlert('Invalid credentials', 'danger');
     }
     console.log(json);
   };

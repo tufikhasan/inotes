@@ -2,16 +2,17 @@ import React, { useContext, useState } from 'react';
 import noteContext from '../../context/notes/noteContext';
 import './Addnote.scss';
 
-const Addnote = () => {
+const Addnote = (props) => {
   const context = useContext(noteContext);
   const { addNote } = context;
-
+  const { showAlert } = props;
   const [note, setNotes] = useState({ title: '', description: '', tag: '' });
   //Handle add note function
   const handleAddNote = (e) => {
     //ignore page load
     e.preventDefault();
     addNote(note.title, note.description, note.tag);
+    showAlert('New Note Added successfully', 'success');
     setNotes({ title: '', description: '', tag: '' });
   };
   //input on change
