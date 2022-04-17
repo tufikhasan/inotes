@@ -25,6 +25,7 @@ const Login = () => {
     } else {
       alert('Invalid credentials');
     }
+    console.log(json);
   };
 
   const onChange = (e) => {
