@@ -1,5 +1,3 @@
-# Getting Started with Create React App
-
 # Preview
 ![inotes](https://user-images.githubusercontent.com/52672268/176060272-51bb232b-1a02-4511-a1ff-a142b7eea7f6.png)
 
